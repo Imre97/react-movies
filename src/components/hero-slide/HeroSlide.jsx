@@ -30,10 +30,11 @@ const HeroSlide = () => {
         <div className="hero-slide">
 
             <Swiper
-                modules={[Autoplay]}
+                autoplay={{delay: 20000}}
                 spaceBetween={0}
                 slidesPerView={1}
                 grabCursor={true}
+                loop={true}
             >
                 {movies.map((item, index) => {
                     return (
