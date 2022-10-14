@@ -6,8 +6,6 @@ const MovieCard = (props) => {
     const { item } = props
     const poster = apiConfig.w500Image(item.poster_path ? item.poster_path : item.backdrop_path)
 
-    
-    console.log(item)
     return (
         <div className="movie-card">
             <img src={`${poster}`} alt={`${item.title}`} />
