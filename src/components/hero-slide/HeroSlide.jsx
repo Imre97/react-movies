@@ -5,6 +5,7 @@ import SwiperCore, { Autoplay } from 'swiper'
 
 import moviedbApi, { movieType } from '../../api/moviedbApi'
 import HeroSlideItem from './hero-slide-item/HeroSlideItem'
+import apiConfig from '../../api/apiConfig'
 
 const HeroSlide = () => {
     SwiperCore.use([Autoplay])
@@ -13,11 +14,9 @@ const HeroSlide = () => {
 
     useEffect(() => {
         const fetchMovie = async () => {
-            const params = {page: 1}
             try {
-                const response = await moviedbApi.getMoviesList(movieType.popular, params)
-                setMovies(response.result.slice(1,5))
-
+                const response = await moviedbApi.getMoviesList(movieType.popular, {params: {page: 1, api_key: apiConfig.apiKey}})
+                setMovies(response.results.slice(1,5))
             } catch (error) {
                 console.log(error)
             }
@@ -39,8 +38,8 @@ const HeroSlide = () => {
                 {movies.map((item, index) => {
                     return (
                         <SwiperSlide key={index}>
-                            {({isActice}) => (
-                                <HeroSlideItem item={item} className={`${isActice ? 'active' : ''}`} />
+                            {({isActive}) => (
+                                <HeroSlideItem item={item} className={isActive ? 'active' : ''} />
                             )}
                         </SwiperSlide>
                     )

@@ -9,11 +9,16 @@
     width: 100%;
     transition: height 0.3s ease, background-color 0.3s ease;
 
+    &.shrink {
+        height: $header-shrink-height;
+        background-color: $body-bg;
+    }
+
     &__wrap {
         @include flex(center, space-between);
 
         height: 100%;
-        pad: 0 2rem;
+        padding: 0 2rem;
 
         @include mobile {
             justify-content: center;

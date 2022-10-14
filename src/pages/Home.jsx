@@ -1,4 +1,6 @@
+import { category, movieType, tvType } from "../api/moviedbApi"
 import HeroSlide from "../components/hero-slide/HeroSlide"
+import MovieList from "../components/movie-list/MovieList"
 
 const Home = () => {
     return (
@@ -10,7 +12,7 @@ const Home = () => {
                         <h2>Trending Movies</h2>
 
                     </div>
-                    alma
+                    <MovieList category={category.movie} type={movieType.popular} />
                 </div>
 
                 <div className="section mb-3">
@@ -18,7 +20,7 @@ const Home = () => {
                         <h2>Top Rated Movies</h2>
 
                     </div>
-                    alma
+                    <MovieList category={category.movie} type={movieType.top_rated} />
                 </div>
 
                 <div className="section mb-3">
@@ -26,7 +28,7 @@ const Home = () => {
                         <h2>Trending TV</h2>
 
                     </div>
-                    alma
+                    <MovieList category={category.tv} type={tvType.popular} />
                 </div>
 
                 <div className="section mb-3">
@@ -34,7 +36,7 @@ const Home = () => {
                         <h2>Top Rated TV</h2>
 
                     </div>
-                    alma
+                    <MovieList category={category.tv} type={tvType.top_rated} />
                 </div>
             </div>
         </>
