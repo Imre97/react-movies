@@ -1,6 +1,6 @@
 import 'swiper/css';
 import Header from "./components/header/Header";
-import RoutesConfig from "./config/RoutesConfig";
+import RoutesConfig from "./routes-config/RoutesConfig";
 
 import './App.scss'
 
