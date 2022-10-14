@@ -1,4 +1,5 @@
 import apiConfig from "../../../api/apiConfig"
+import Button, { OutlineButton } from "../../button/Button"
 
 import './hero-slide-item.scss'
 
@@ -13,6 +14,14 @@ const HeroSlideItem = props => {
                 <div className="hero-slide__item-content-info">
                     <h2 className="title">{item.title}</h2>
                     <div className="overview">{item.overview}</div>
+                    <div className="btns">
+                        <Button>
+                            Watch movie
+                        </Button>
+                        <OutlineButton>
+                            Watch Trailer
+                        </OutlineButton>
+                    </div>
                 </div>
                 <div className="hero-slide__item-content-poster">
                     <img src={`${apiConfig.w500Image(item.poster_path)}`} alt="" />
