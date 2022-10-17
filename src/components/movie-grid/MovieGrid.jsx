@@ -64,7 +64,7 @@ const MovieGrid = (props) => {
             <div className='movie-grid container mb-3'>
                 {items.map(item => {
                     return (
-                        <MovieCard key={item.id} item={item} />
+                        <MovieCard key={item.id} item={item} category={props.category} />
                     )
                 })}
             </div>
