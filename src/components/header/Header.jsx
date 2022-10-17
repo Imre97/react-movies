@@ -10,10 +10,10 @@ const headerNav = [
     },
     {
         display: 'Movies',
-        path: '/movies'
+        path: '/movie'
     },
     {
-        display: 'TV series',
+        display: 'TV Series',
         path: '/tv'
     }
 ]
