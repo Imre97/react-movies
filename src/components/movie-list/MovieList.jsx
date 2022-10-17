@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 
+
 import apiConfig from "../../api/apiConfig"
 import moviedbApi, {category} from "../../api/moviedbApi"
 
@@ -11,6 +12,7 @@ import './movie-list.scss'
 
 const MovieList = (props) => {
     const [data, setData] = useState([])
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,6 +27,8 @@ const MovieList = (props) => {
                             response = await moviedbApi.getTvList(props.type, {params: {api_key: apiConfig.apiKey}})
                             break
                     }
+                } else {
+                    response = await moviedbApi.similar(props.cat, props.id, {params: {api_key: apiConfig.apiKey}})
                 }
                 setData(response.results)
             } catch (err) {
@@ -34,7 +38,6 @@ const MovieList = (props) => {
 
         fetchData()
     },[])
-
 
 
     return(
@@ -49,7 +52,7 @@ const MovieList = (props) => {
                 {data.map((item) => {
                     return (
                         <SwiperSlide key={item.id}>
-                            <MovieCard item={item} />
+                            <MovieCard item={item} category={props.category !== 'similar' ? props.category : props.cat } />
                         </SwiperSlide>
                     )
                 })}

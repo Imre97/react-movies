@@ -26,9 +26,9 @@ const moviedbApi = {
         const url = 'tv/' + tvType[type];
         return axiosClient.get(url, params);
     },
-    getVideos: (cate, id) => {
+    getVideos: (cate, id, params) => {
         const url = category[cate] + '/' + id + '/videos';
-        return axiosClient.get(url, { params: {} });
+        return axiosClient.get(url, params);
     },
     search: (cate, params) => {
         const url = 'search/' + category[cate];
@@ -38,13 +38,13 @@ const moviedbApi = {
         const url = category[cate] + '/' + id;
         return axiosClient.get(url, params);
     },
-    credits: (cate, id) => {
+    credits: (cate, id, params) => {
         const url = category[cate] + '/' + id + '/credits';
-        return axiosClient.get(url, { params: {} });
+        return axiosClient.get(url, params);
     },
-    similar: (cate, id) => {
+    similar: (cate, id, params) => {
         const url = category[cate] + '/' + id + '/similar';
-        return axiosClient.get(url, { params: {} });
+        return axiosClient.get(url, params);
     },
 }
 
