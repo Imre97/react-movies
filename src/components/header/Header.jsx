@@ -26,7 +26,7 @@ const Header = () => {
 
     useEffect(() => {
         const shrinkHeader = () => {
-            if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                 refHeader.current.classList.add('shrink')
             } else {
                 refHeader.current.classList.remove('shrink')
@@ -35,7 +35,7 @@ const Header = () => {
 
         window.addEventListener('scroll', shrinkHeader)
 
-        return () =>{
+        return () => {
             window.removeEventListener('scroll', shrinkHeader)
         }
 
@@ -44,9 +44,11 @@ const Header = () => {
     return (
         <div className='header' ref={refHeader}>
             <div className='header__wrap container'>
-                <div>
-                    Logo
-                </div>
+                <Link to='/'>
+                    <h1>
+                        ReactMovies
+                    </h1>
+                </Link>
                 <ul className='header__nav'>
                     {headerNav.map((item, i) => {
                         return (
