@@ -18,7 +18,7 @@ const MovieList = (props) => {
         const fetchData = async () => {
             let response = []
             try {
-                if (props.category !== 'similar') {
+                if (props.type !== 'similar') {
                     switch (props.category) {
                         case category.movie:
                             response = await moviedbApi.getMoviesList(props.type, {params: {api_key: apiConfig.apiKey}}) 
@@ -28,7 +28,7 @@ const MovieList = (props) => {
                             break
                     }
                 } else {
-                    response = await moviedbApi.similar(props.cat, props.id, {params: {api_key: apiConfig.apiKey}})
+                    response = await moviedbApi.similar(props.category, props.id, {params: {api_key: apiConfig.apiKey}})
                 }
                 setData(response.results)
             } catch (err) {

@@ -14,7 +14,6 @@ const Video = (props) => {
                 console.log(error)
             }
             let video = response.results.filter(x => x.name === 'Official Trailer')
-            console.log(response)
             if(video.length > 0) {
                 setVideo(video[0].key)
             } else if(response.results.length > 0) {
