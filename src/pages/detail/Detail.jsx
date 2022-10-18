@@ -72,7 +72,7 @@ const Detail = () => {
                             <div className='section-header mb-2'>
                                 <h2>Similar</h2>
                             </div>
-                            <MovieList category={'similar'} id={item.id} cat={category} />
+                            <MovieList type={'similar'} id={item.id} category={category} />
                         </div>
                     </div>
                 </>

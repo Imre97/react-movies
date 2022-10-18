@@ -14,7 +14,7 @@ const MovieCard = (props) => {
     return (
         <Link to={`/${props.category}/${item.id}`}>
             <div className="movie-card" style={{ backgroundImage: `url(${poster})` }}>
-                <Button>Watch Movie</Button>
+                <Button>Watch</Button>
             </div>
             <h3>{item.title || item.name}</h3>
         </Link>
