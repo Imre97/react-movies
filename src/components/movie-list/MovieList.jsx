@@ -37,7 +37,7 @@ const MovieList = (props) => {
         }
 
         fetchData()
-    },[])
+    },[props.type, props.id])
 
 
     return(

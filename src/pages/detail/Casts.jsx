@@ -27,7 +27,9 @@ const Casts = (props) => {
             {casts.map(cast => {
                 return (
                     <div className='casts-item' key={cast.id}>
-                        <div className='casts-item__image' style={{backgroundImage: `url(${apiConfig.w500Image(cast.profile_path)})`}}></div>
+                        <div className='casts-item__image' style={{backgroundImage: `url(${apiConfig.w500Image(cast.profile_path)})`}}>
+                            {!cast.profile_path && <p className='casts-item__image-p'>No Image</p>}
+                        </div>
                         <p className='casts-item__name'>{cast.name}</p>
                     </div>
                 )

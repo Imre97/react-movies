@@ -48,6 +48,7 @@ const ModalOverlay = props => {
         <div className={`modal ${props.modal.active ? 'modal-active' : ''}`}>
             <div className='iframe'>
                 <iframe src={`https://www.youtube.com/embed/${video}`} title='video'></iframe>
+                {!video && <p>Trailer not found</p>}
             </div>
         </div>
     )
