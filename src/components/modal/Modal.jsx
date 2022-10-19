@@ -21,10 +21,16 @@ const Backdrop = (props) => {
     )
 }
 
+let firstLoad = true
+
 const ModalOverlay = props => {
     const [video, setVideo] = useState()
 
     useEffect(() => {
+        if(firstLoad) {
+            firstLoad = false
+            return
+        }
         const fetchData = async () => {
             let response = null
             try {
