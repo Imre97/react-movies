@@ -21,14 +21,12 @@ const Backdrop = (props) => {
     )
 }
 
-let firstLoad = true
 
 const ModalOverlay = props => {
     const [video, setVideo] = useState()
 
     useEffect(() => {
-        if(firstLoad) {
-            firstLoad = false
+        if(props.modal.category === undefined || props.modal.id === undefined) {
             return
         }
         const fetchData = async () => {
@@ -36,12 +34,14 @@ const ModalOverlay = props => {
             try {
                 response = await moviedbApi.getVideos(props.modal.category, props.modal.id, { params: { api_key: apiConfig.apiKey } })
             } catch (error) {
-                console.log(error)
+                console.error(error)
             }
-            let video = response.results.filter(x => x.name === 'Official Trailer')
-            if(video.length > 0) {
+
+            let video = response && response.results.filter(x => x.name === 'Official Trailer')
+            
+            if(video && video.length > 0) {
                 setVideo(video[0].key)
-            } else if(response.results.length > 0) {
+            } else if(response && response.results.length > 0) {
                 setVideo(response.results[0].key)
             } else {
                 setVideo(null)
@@ -50,11 +50,12 @@ const ModalOverlay = props => {
 
         fetchData()
     }, [props.modal.id])
+
     return (
         <div className={`modal ${props.modal.active ? 'modal-active' : ''}`}>
             <div className='iframe'>
-                <iframe src={`https://www.youtube.com/embed/${video}`} title='video'></iframe>
-                {!video && <p>Trailer not found</p>}
+                {video && <iframe src={`https://www.youtube.com/embed/${video}`} title='video'></iframe>}
+                {!video && <p style={{color: 'white'}}>Trailer not found</p>}
             </div>
         </div>
     )
